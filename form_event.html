@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Events and Manipulation</title>
+</head>
+<body>
+  <input type="text" id="inputField" placeholder="Type something...">
+  <p id="output">Event logs:</p>
+
+  <script>
+    const inputField = document.getElementById('inputField');
+    const output = document.getElementById('output');
+
+    
+    inputField.addEventListener('keydown', (event) => {
+      output.innerHTML += `<p>Keydown event: Key code - ${event.keyCode}</p>`;
+    });
+
+    
+    inputField.addEventListener('keypress', (event) => {
+      output.innerHTML += `<p>Keypress event: Char code - ${event.charCode}</p>`;
+    });
+
+    
+    inputField.addEventListener('keyup', () => {
+      output.innerHTML += `<p>Keyup event</p>`;
+    });
+
+    
+    inputField.addEventListener('focus', () => {
+      output.innerHTML += `<p>Focus event</p>`;
+    });
+
+    
+    inputField.addEventListener('blur', () => {
+      output.innerHTML += `<p>Blur event</p>`;
+    });
+
+    
+    inputField.addEventListener('cut', () => {
+      output.innerHTML += `<p>Cut event</p>`;
+    });
+
+    
+    inputField.addEventListener('paste', () => {
+      output.innerHTML += `<p>Paste event</p>`;
+    });
+
+    
+    inputField.addEventListener('change', () => {
+      output.innerHTML += `<p>Change event: Field value - ${inputField.value}</p>`;
+    });
+
+    
+    const addButton = document.createElement('button');
+    addButton.textContent = 'Add Text';
+    addButton.addEventListener('click', () => {
+      const newText = document.createElement('p');
+      newText.textContent = 'New dynamically added text.';
+      document.body.appendChild(newText);
+    });
+
+    document.body.appendChild(addButton);
+  </script>
+</body>
+</html>
